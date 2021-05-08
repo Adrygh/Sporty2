@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "839373739066",
+    "project_id": "sporty2-5652a",
+    "storage_bucket": "sporty2-5652a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839373739066:android:dd02dcd9353e51eae99103",
+        "android_client_info": {
+          "package_name": "com.adrydev.sporty2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839373739066-6m2i6ci9c5i5nkvkgcjlsge658cd9edu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuFnE1Ub0vXIBjdTpGon_yTJiOGyHhutw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839373739066-6m2i6ci9c5i5nkvkgcjlsge658cd9edu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
