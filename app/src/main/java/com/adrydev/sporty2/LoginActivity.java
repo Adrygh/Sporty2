@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.Application;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,8 @@ public class LoginActivity extends Activity {
 
     private String emilio;
     private String contrasenia;
+    private ProgressDialog progressDialog;
+
 
     private FirebaseAuth mAuth;
 
@@ -42,6 +45,7 @@ public class LoginActivity extends Activity {
         etLoginPass = (EditText) findViewById(R.id.etContraseniaLogin);
         btnLoginRegistro = (Button) findViewById(R.id.btnRegistroLogin);
         btnLoginAcede = (Button) findViewById(R.id.btnAccedeLogin);
+        progressDialog = new ProgressDialog(this);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -89,6 +93,8 @@ public class LoginActivity extends Activity {
     }
 
     private void registrarUsuario() {
+        progressDialog.setMessage("Realizando el registro en linea...");
+        progressDialog.show();
         mAuth.createUserWithEmailAndPassword(emilio,contrasenia).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -108,6 +114,7 @@ public class LoginActivity extends Activity {
                     }else{
                         Toast.makeText(LoginActivity.this, "No se pudo realizar el registro correctamente", Toast.LENGTH_LONG).show();
                     }
+                    progressDialog.dismiss();
                     }
             }
         });
@@ -116,6 +123,8 @@ public class LoginActivity extends Activity {
 
 
     private void logearUsuario() {
+        progressDialog.setMessage("Accediendo a la base de datos...");
+        progressDialog.show();
         mAuth.signInWithEmailAndPassword(emilio,contrasenia).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
