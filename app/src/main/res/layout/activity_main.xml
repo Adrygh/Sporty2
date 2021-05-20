@@ -28,42 +28,60 @@
         android:id="@+id/btnFutbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:text="FUTBOL"
         android:layout_gravity="center"
-        android:padding="20dp"
         android:layout_margin="10dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@color/purple_500"
+        android:padding="20dp"
+        android:text="FUTBOL"
         android:textSize="24sp" />
 
     <Button
         android:id="@+id/btnBaloncesto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:text="BALONCESTO"
         android:layout_gravity="center"
-        android:padding="20dp"
         android:layout_margin="10dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@android:color/holo_orange_dark"
+        android:padding="20dp"
+        android:text="BALONCESTO"
         android:textSize="24sp" />
+
     <Button
         android:id="@+id/btnSkate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:text="Skate"
         android:layout_gravity="center"
-        android:padding="20dp"
         android:layout_margin="10dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@color/teal_200"
+        android:padding="20dp"
+        android:text="Skate"
         android:textSize="24sp" />
+
     <Button
         android:id="@+id/btnPadel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:text="PADEL"
         android:layout_gravity="center"
-        android:padding="20dp"
         android:layout_margin="10dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="#CDDC39"
+        android:padding="20dp"
+        android:text="PADEL"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnRegistros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="#2CD70E"
+        android:padding="20dp"
+        android:text="MIS REGISTROS"
         android:textSize="24sp" />
 
 </LinearLayout>
