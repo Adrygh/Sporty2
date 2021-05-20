@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Sporty2</string>
+    <string name="title_activity_futbol_map">Map</string>
+    <string name="title_activity_baloncesto_map">Map</string>
+    <string name="title_activity_skate_map">Map</string>
+    <string name="title_activity_padel_map">Map</string>
 </resources>
