@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/loginfoto"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -20,8 +21,8 @@
         android:id="@+id/etEmailLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:layout_marginHorizontal="30dp"
+        android:ems="10"
         android:hint="Introduce tu email"
         android:inputType="textEmailAddress" />
 
@@ -29,8 +30,8 @@
         android:id="@+id/etContraseniaLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:layout_margin="30dp"
+        android:ems="10"
         android:hint="Introduce tu contraseña"
         android:inputType="textPassword" />
 
@@ -39,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
+        android:background="@android:color/holo_green_dark"
         android:text="REGISTRATE"
         app:rippleColor="#C831A3" />
 
@@ -54,6 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:text="ACEDE"
+        android:background="@android:color/holo_green_light"
+        android:text="ENTRAR"
         app:rippleColor="#C831A3" />
 </LinearLayout>
