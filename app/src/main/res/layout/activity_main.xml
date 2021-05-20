@@ -1,18 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/depor"
+    android:orientation="vertical"
+    android:textAlignment="center"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_width="347dp"
+        android:layout_height="115dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="SELECCIONA TU DEPORTE FAVORITO"
+        android:textColor="@color/white"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnFutbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="FUTBOL"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnBaloncesto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="BALONCESTO"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnSkate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="Skate"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnPadel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="PADEL"
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        android:textSize="24sp" />
+
+</LinearLayout>
