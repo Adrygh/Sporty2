@@ -8,6 +8,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -38,9 +39,35 @@ public class SkateMap extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng f1 = new LatLng(40.418000640396656, -3.6548328640284247);
+        mMap.addMarker(new MarkerOptions().position(f1).title("Campo fútbol AFE").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+
+        LatLng f2 = new LatLng(40.44348070503213, -3.6067676792534953);
+        mMap.addMarker(new MarkerOptions().position(f2).title("Campo de futbol Antonio Palacios").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+
+        LatLng f3 = new LatLng(40.42218264647024, -3.61912729819562);
+        mMap.addMarker(new MarkerOptions().position(f3).title("Campo Municipal San Blas").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(f3,14), 5000, null);
+
+        LatLng f4 = new LatLng(40.419960988112614, -3.574152018156222);
+        mMap.addMarker(new MarkerOptions().position(f4).title("Campos de futbol Barrio del Puerto").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+        LatLng f5 = new LatLng(40.419960988112614, -3.574152018156222);
+        mMap.addMarker(new MarkerOptions().position(f5).title("Campo de fútbol Ciudad de Águilas").snippet("Campo de Tierra").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        //mMap.setOnMarkerClickListener();
+        LatLng f6 = new LatLng(40.412717803038134, -3.6427231313264974);
+        mMap.addMarker(new MarkerOptions().position(f6).title("Campo de fútbol Moratalaz").snippet("Campo de Tierra").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+        LatLng f7 = new LatLng(40.40332489129164, -3.636866036620011);
+        mMap.addMarker(new MarkerOptions().position(f7).title("Campo de fútbol El Hoyo").snippet("Campo de Futbol sala").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+        LatLng f8 = new LatLng(40.412485131093035, -3.6175573604421793);
+        mMap.addMarker(new MarkerOptions().position(f8).title("Campo de fútbol Cuña verde").snippet("Campo de Tierra").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+
+
+
     }
 }
