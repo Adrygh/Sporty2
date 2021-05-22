@@ -24,7 +24,8 @@
         android:layout_marginHorizontal="30dp"
         android:ems="10"
         android:hint="Introduce tu email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/etContraseniaLogin"
@@ -33,7 +34,8 @@
         android:layout_margin="30dp"
         android:ems="10"
         android:hint="Introduce tu contraseña"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnRegistroLogin"

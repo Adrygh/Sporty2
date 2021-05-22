@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -95,6 +96,7 @@ public class Datos extends AppCompatActivity {//--------------------------------
         databaseReference = firebaseDatabase.getReference();
     }
 
+
     // Creamos este metodo para implementar el menu en el layout main---------------------------------------------------------
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -164,6 +166,7 @@ public class Datos extends AppCompatActivity {//--------------------------------
         pesoP.setText("");
         edadP.setText("");
     }
+
 
     //Creamos un metodo para validar------------------------------------------------------------------------------------------------
     private void validacion() {

@@ -4,43 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/registro"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".Datos">
+
 
     <EditText
         android:id="@+id/etNomD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Nombre"
-        />
+        android:inputType="textPersonName" />
+
     <EditText
         android:id="@+id/etDeporD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Deporte"
-        />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etEdadD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Edad"
-        />
+        android:inputType="textPersonName" />
+
     <EditText
         android:id="@+id/etPesoD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Peso"
-        />
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView"
@@ -53,5 +53,5 @@
     <ListView
         android:id="@+id/lvDatosUsu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="424dp" />
 </LinearLayout>
