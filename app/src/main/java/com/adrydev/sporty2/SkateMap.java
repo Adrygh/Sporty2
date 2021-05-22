@@ -39,32 +39,32 @@ public class SkateMap extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng f1 = new LatLng(40.418000640396656, -3.6548328640284247);
-        mMap.addMarker(new MarkerOptions().position(f1).title("Campo fútbol AFE").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f1 = new LatLng(40.3994582212128, -3.7026898114613678);
+        mMap.addMarker(new MarkerOptions().position(f1).title("Skatepark Madrid Río").snippet("Suelo perfecto").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
 
-        LatLng f2 = new LatLng(40.44348070503213, -3.6067676792534953);
-        mMap.addMarker(new MarkerOptions().position(f2).title("Campo de futbol Antonio Palacios").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f2 = new LatLng(40.456431396270816, -3.4760967975224166);
+        mMap.addMarker(new MarkerOptions().position(f2).title("Skatepark Torrejon").snippet("Profesional").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
 
-        LatLng f3 = new LatLng(40.42218264647024, -3.61912729819562);
-        mMap.addMarker(new MarkerOptions().position(f3).title("Campo Municipal San Blas").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f3 = new LatLng(40.440755519673715, -3.6027828916791935);
+        mMap.addMarker(new MarkerOptions().position(f3).title("Skate Park San Blas").snippet("Suelo en mal estado").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(f3,14), 5000, null);
 
-        LatLng f4 = new LatLng(40.419960988112614, -3.574152018156222);
-        mMap.addMarker(new MarkerOptions().position(f4).title("Campos de futbol Barrio del Puerto").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f4 = new LatLng(40.47523762153203, -3.708526298184038);
+        mMap.addMarker(new MarkerOptions().position(f4).title("Skate Plaza").snippet("Suelo muy bueno").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
-        LatLng f5 = new LatLng(40.419960988112614, -3.574152018156222);
-        mMap.addMarker(new MarkerOptions().position(f5).title("Campo de fútbol Ciudad de Águilas").snippet("Campo de Tierra").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f5 = new LatLng(40.50134864274838, -3.693763420003166);
+        mMap.addMarker(new MarkerOptions().position(f5).title("Skatepark Fuencarral").snippet("Suelo mejorable").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         //mMap.setOnMarkerClickListener();
-        LatLng f6 = new LatLng(40.412717803038134, -3.6427231313264974);
-        mMap.addMarker(new MarkerOptions().position(f6).title("Campo de fútbol Moratalaz").snippet("Campo de Tierra").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f6 = new LatLng(40.45251276990925, -3.4541241416253063);
+        mMap.addMarker(new MarkerOptions().position(f6).title("On Fire Skate Park").snippet("Suelo de madera").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
-        LatLng f7 = new LatLng(40.40332489129164, -3.636866036620011);
-        mMap.addMarker(new MarkerOptions().position(f7).title("Campo de fútbol El Hoyo").snippet("Campo de Futbol sala").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f7 = new LatLng(40.45590892595998, -3.4778134112643784);
+        mMap.addMarker(new MarkerOptions().position(f7).title("Skatepark Torrejón de Ardoz").snippet("Suelo para Surfskate").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
-        LatLng f8 = new LatLng(40.412485131093035, -3.6175573604421793);
-        mMap.addMarker(new MarkerOptions().position(f8).title("Campo de fútbol Cuña verde").snippet("Campo de Tierra").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f8 = new LatLng(40.362102125151594, -3.8117090745847486);
+        mMap.addMarker(new MarkerOptions().position(f8).title("Skatepark San Jose De Valderas").snippet("Suelo en buen estado").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
 
 

@@ -39,32 +39,32 @@ public class BaloncestoMap extends FragmentActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng f1 = new LatLng(40.418000640396656, -3.6548328640284247);
-        mMap.addMarker(new MarkerOptions().position(f1).title("Campo fútbol AFE").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f1 = new LatLng(40.47919714744627, -3.696853200700267);
+        mMap.addMarker(new MarkerOptions().position(f1).title("Cancha de Baloncesto").snippet("Suelo Poco Cuidado").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
 
-        LatLng f2 = new LatLng(40.44348070503213, -3.6067676792534953);
-        mMap.addMarker(new MarkerOptions().position(f2).title("Campo de futbol Antonio Palacios").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f2 = new LatLng(40.435310351774774, -3.7263789570620083);
+        mMap.addMarker(new MarkerOptions().position(f2).title("Cancha de Baloncesto Paseo Camoens").snippet("Muy cuidadas").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
 
-        LatLng f3 = new LatLng(40.42218264647024, -3.61912729819562);
-        mMap.addMarker(new MarkerOptions().position(f3).title("Campo Municipal San Blas").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f3 = new LatLng(40.41361760559365, -3.7037196556681136);
+        mMap.addMarker(new MarkerOptions().position(f3).title("Canchas De Embajadores").snippet("Suelos Nuevos").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(f3,14), 5000, null);
 
-        LatLng f4 = new LatLng(40.419960988112614, -3.574152018156222);
-        mMap.addMarker(new MarkerOptions().position(f4).title("Campos de futbol Barrio del Puerto").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f4 = new LatLng(40.47684679587297, -3.6549678253964006);
+        mMap.addMarker(new MarkerOptions().position(f4).title("Canchas De Baloncesto").snippet("Suelo poco cuidado").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
-        LatLng f5 = new LatLng(40.419960988112614, -3.574152018156222);
-        mMap.addMarker(new MarkerOptions().position(f5).title("Campo de fútbol Ciudad de Águilas").snippet("Campo de Tierra").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f5 = new LatLng(40.40472940061158, -3.6779704495386882);
+        mMap.addMarker(new MarkerOptions().position(f5).title("Canchas Baloncesto Pacífico").snippet("Suelo normal").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
-        LatLng f6 = new LatLng(40.412717803038134, -3.6427231313264974);
-        mMap.addMarker(new MarkerOptions().position(f6).title("Campo de fútbol Moratalaz").snippet("Campo de Tierra").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f6 = new LatLng(40.41387900561696, -3.639174978970352);
+        mMap.addMarker(new MarkerOptions().position(f6).title("Campos de baloncesto").snippet("Suelo normal").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
-        LatLng f7 = new LatLng(40.40332489129164, -3.636866036620011);
-        mMap.addMarker(new MarkerOptions().position(f7).title("Campo de fútbol El Hoyo").snippet("Campo de Futbol sala").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f7 = new LatLng(40.40499083515974, -3.6707606718224484);
+        mMap.addMarker(new MarkerOptions().position(f7).title("Cancha Baloncesto Pública Luis Mitjans").snippet("Suelo en mal estado").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
-        LatLng f8 = new LatLng(40.412485131093035, -3.6175573604421793);
-        mMap.addMarker(new MarkerOptions().position(f8).title("Campo de fútbol Cuña verde").snippet("Campo de Tierra").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        LatLng f8 = new LatLng(40.436094295932705, -3.734962025771817);
+        mMap.addMarker(new MarkerOptions().position(f8).title("Cancha de Baloncesto loeches").snippet("Suelo en buen estado").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
 
 
