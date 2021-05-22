@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         btnMisReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Registros.class);
+                Intent intent = new Intent(getApplicationContext(),Datos.class);
                 startActivity(intent);
             }
         });
