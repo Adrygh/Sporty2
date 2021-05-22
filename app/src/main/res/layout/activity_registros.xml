@@ -25,11 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginTop="504dp"
+        android:fontFamily="@font/bangers"
         android:text="Edad"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,11 +39,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginTop="412dp"
+        android:fontFamily="@font/bangers"
         android:text="Peso"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,7 +70,6 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="36sp"
-        android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -81,11 +80,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginTop="236dp"
+        android:fontFamily="@font/bangers"
         android:text="Nombre"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -119,11 +118,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginTop="320dp"
+        android:fontFamily="@font/bangers"
         android:text="Deporte"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -136,5 +135,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/sportylogo" />
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="153dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/holo_green_dark"
+        android:fontFamily="@font/bangers"
+        android:text="Enviar"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEdadReg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
