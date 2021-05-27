@@ -7,6 +7,7 @@ public class Usuario {
     private String edad;
     private String peso;
 
+
     public Usuario() {
     }
 

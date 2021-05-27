@@ -1,25 +1,48 @@
 package com.adrydev.sporty2;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class FutbolMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    FirebaseDatabase firebaseDatabase;
+    private DatabaseReference mDataBase;
+    private String randonKey;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_futbol_map);
+        mDataBase = (FirebaseDatabase.getInstance().getReference());
+        mAuth = FirebaseAuth.getInstance();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -38,14 +61,22 @@ public class FutbolMap extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        randonKey = UUID.randomUUID().toString();
 
         LatLng f1 = new LatLng(40.418000640396656, -3.6548328640284247);
         mMap.addMarker(new MarkerOptions().position(f1).title("Campo fútbol AFE").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-
+//
 
         LatLng f2 = new LatLng(40.44348070503213, -3.6067676792534953);
         mMap.addMarker(new MarkerOptions().position(f2).title("Campo de futbol Antonio Palacios").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                String id = mAuth.getCurrentUser().getUid();
+                mDataBase.child("Users").child(id).child("Loca").child(randonKey).setValue(marker);//guardar la loca
+                return false;
+            }
+        });
 
         LatLng f3 = new LatLng(40.42218264647024, -3.61912729819562);
         mMap.addMarker(new MarkerOptions().position(f3).title("Campo Municipal San Blas").snippet("Cesped Artificial").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));

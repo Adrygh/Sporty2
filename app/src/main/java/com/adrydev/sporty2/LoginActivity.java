@@ -19,6 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +33,7 @@ public class LoginActivity extends Activity {
     private String emilio;
     private String contrasenia;
     private ProgressDialog progressDialog;
-
+    private DatabaseReference mDataBase;
 
     private FirebaseAuth mAuth;
 
@@ -46,7 +48,7 @@ public class LoginActivity extends Activity {
         btnLoginRegistro = (Button) findViewById(R.id.btnRegistroLogin);
         btnLoginAcede = (Button) findViewById(R.id.btnAccedeLogin);
         progressDialog = new ProgressDialog(this);
-
+        mDataBase = (FirebaseDatabase.getInstance().getReference());
         mAuth = FirebaseAuth.getInstance();
 
         btnLoginRegistro.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +108,20 @@ public class LoginActivity extends Activity {
                     map.put("email", emilio);
                     map.put("contrasenia", contrasenia);
 
-                    String id = mAuth.getCurrentUser().getUid();
+
+                    String id = mAuth.getCurrentUser().getUid();// obtener el id del objeto generado
+                    mDataBase.child("Users").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task2) {
+                            if (task2.isSuccessful()){
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                finish();
+                            }else {
+                                Toast.makeText(LoginActivity.this,"No se pudieron crear los datos correctamente", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    });
 
                 }else {
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {
@@ -118,6 +133,8 @@ public class LoginActivity extends Activity {
                     }
             }
         });
+
+
 
     }
 
@@ -137,7 +154,7 @@ public class LoginActivity extends Activity {
                     map.put("email", emilio);
                     map.put("contrasenia", contrasenia);
 
-                    String id = mAuth.getCurrentUser().getUid();
+
 
                 }else {
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {

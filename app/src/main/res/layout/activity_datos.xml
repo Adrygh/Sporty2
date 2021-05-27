@@ -47,8 +47,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Registros"
-        android:textSize="50dp" />
+        android:text="Mi ultimo Spot "
+        android:textSize="45sp" />
 
     <ListView
         android:id="@+id/lvDatosUsu"

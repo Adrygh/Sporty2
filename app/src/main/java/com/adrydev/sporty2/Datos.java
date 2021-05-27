@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +37,7 @@ public class Datos extends AppCompatActivity {//--------------------------------
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-
+    private FirebaseAuth mAuth;
     Usuario usuarioSeleccionado;
 
     //METODO ON CREATE---------------------------------------------------------------------------------------------------------------
@@ -44,7 +45,7 @@ public class Datos extends AppCompatActivity {//--------------------------------
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos);
-
+        mAuth = FirebaseAuth.getInstance();
         nombreP = (EditText) findViewById(R.id.etNomD);
         depoP = (EditText) findViewById(R.id.etDeporD);
         edadP = (EditText) findViewById(R.id.etEdadD);
@@ -69,17 +70,12 @@ public class Datos extends AppCompatActivity {//--------------------------------
     }
     //creamos este metodo para listar los datos-----------------------------------------------------------------------------------
     private void listarDatos() {
-        databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {
+        String id = mAuth.getCurrentUser().getUid();
+        databaseReference.child("Users").child(id).child("Loca").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //le decimos que nos limpie la lista por si hay almacenado en cache por la persistencia
-                usuarioList.clear();
-                for (DataSnapshot objSnapshot : snapshot.getChildren()){
-                    Usuario u = objSnapshot.getValue(Usuario.class);
-                    usuarioList.add(u);
-                    usuarioArrayAdapter = new ArrayAdapter<Usuario>(Datos.this, android.R.layout.simple_list_item_1,usuarioList);
-                    lvZusuario.setAdapter(usuarioArrayAdapter);
-                }
+
 
             }
 
@@ -88,6 +84,9 @@ public class Datos extends AppCompatActivity {//--------------------------------
 
             }
         });
+//        String id = mAuth.getCurrentUser().getUid();
+//        databaseReference.child("Users").child(id).child("Loca").set;
+
     }
     //creamos este metodo para iniciar Firebase con una instancia y una referencia-------------------------------------------
     private void inicializarFirebase() {
