@@ -111,39 +111,41 @@ public class Datos extends AppCompatActivity {//--------------------------------
                 if(nombre.equals("") || (deporte.equals("") || (peso.equals("") || (edad.equals(""))))){
                     validacion();
                 }else{
-                    //creamos un objeto zapatilla y enviamos los atributos
+                    //creamos un objeto Usuari0 y enviamos los atributos
                     Usuario u = new Usuario();
                     u.setId(UUID.randomUUID().toString());// agregamos un ramdomidazor en el id
                     u.setNombre(nombre);
                     u.setDeporte(deporte);
                     u.setPeso(peso);
+                    u.setEdad(edad);
 
-                    // con esto creamos la tabla zapatilla que contendra ids aleatorias de las diferentes zapas
-                    databaseReference.child("Usuario").child(u.getId()).setValue(u);
+                    String id = mAuth.getCurrentUser().getUid();
+                    databaseReference.child("Users").child(id).child("MasDatos").setValue(u);
                     Toast.makeText(this, "Agregado correctamente", Toast.LENGTH_SHORT).show();
-                    limpiarCajas();
+
                 }
                 break;
             }
             case R.id.iconEditar:{
                 Usuario u = new Usuario();
-                u.setId(usuarioSeleccionado.getId());//cogemos el id de la zapatilla seleccionada
+                u.setId(usuarioSeleccionado.getId());//cogemos el id del usuario seleccionada
                 u.setNombre(nombreP.getText().toString().trim());
                 u.setDeporte(depoP.getText().toString().trim());
                 u.setPeso(pesoP.getText().toString().trim());
                 u.setEdad(edadP.getText().toString().trim());
                 //con esta llamada sobreescribimos el objeto seleccionado en la database
-                databaseReference.child("Usuario").child(u.getId()).setValue(u);
+                String id = mAuth.getCurrentUser().getUid();
+                databaseReference.child("Users").child(id).child("MasDatos").setValue(u);
                 Toast.makeText(this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
-                //limpiamos al actualizar con nuestro metodo
-                limpiarCajas();
+
                 break;
             }
             case R.id.iconEliminar:{
                 Usuario u = new Usuario();
                 u.setId(usuarioSeleccionado.getId());
                 // con esta llamada eliminamos el objeto seleccionado
-                databaseReference.child("Usuario").child(u.getId()).removeValue();
+                String id = mAuth.getCurrentUser().getUid();
+                databaseReference.child("Users").child(id).child("MasDatos").child(u.getId()).removeValue();
                 Toast.makeText(this, "Eliminado correctamente", Toast.LENGTH_SHORT).show();
                 limpiarCajas();
                 break;
