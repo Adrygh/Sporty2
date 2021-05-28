@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import com.google.android.gms.maps.model.Marker;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.adrydev.sporty2.Usuario;
 
@@ -31,8 +33,9 @@ public class Datos extends AppCompatActivity {//--------------------------------
     // aqui declaramos las variables
     private List<Usuario> usuarioList = new ArrayList<Usuario>();
     ArrayAdapter<Usuario> usuarioArrayAdapter;
-
+    private String randonKey;
     EditText nombreP, depoP, edadP,pesoP;
+    TextView datosS;
     ListView lvZusuario;
 
     FirebaseDatabase firebaseDatabase;
@@ -50,44 +53,36 @@ public class Datos extends AppCompatActivity {//--------------------------------
         depoP = (EditText) findViewById(R.id.etDeporD);
         edadP = (EditText) findViewById(R.id.etEdadD);
         pesoP = (EditText) findViewById(R.id.etPesoD);
-        lvZusuario = (ListView) findViewById(R.id.lvDatosUsu);
+        datosS = (TextView) findViewById(R.id.tvDatos);
         // con este metodo iniciamos Firebase
         inicializarFirebase();
         // con este metodo listamos los datos
         listarDatos();
         // creamos este metodo para al pinchar en el item listado nos rellene los campos con sus atributos
-        lvZusuario.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                usuarioSeleccionado = (Usuario) parent.getItemAtPosition(position);
-                nombreP.setText(usuarioSeleccionado.getNombre());
-                depoP.setText(usuarioSeleccionado.getDeporte());
-                pesoP.setText(usuarioSeleccionado.getPeso());
-                edadP.setText(usuarioSeleccionado.getEdad());
-            }
-        });
+
 
     }
     //creamos este metodo para listar los datos-----------------------------------------------------------------------------------
     private void listarDatos() {
-        String id = mAuth.getCurrentUser().getUid();
-        databaseReference.child("Users").child(id).child("Loca").addValueEventListener(new ValueEventListener() {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+
+        ref.child("Users").child("Loca").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //le decimos que nos limpie la lista por si hay almacenado en cache por la persistencia
-
-
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String valor = dataSnapshot.getValue(String.class);
+                datosS.setText(String.valueOf(valor));
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Fallo la lectura: " + databaseError.getCode());
             }
         });
+    }
 //        String id = mAuth.getCurrentUser().getUid();
 //        databaseReference.child("Users").child(id).child("Loca").set;
 
-    }
+
     //creamos este metodo para iniciar Firebase con una instancia y una referencia-------------------------------------------
     private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);
