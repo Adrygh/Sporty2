@@ -37,7 +37,7 @@ public class Datos extends AppCompatActivity {//--------------------------------
     EditText nombreP, depoP, edadP,pesoP;
     TextView datosS;
     ListView lvZusuario;
-
+    private String titulo;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
@@ -59,9 +59,28 @@ public class Datos extends AppCompatActivity {//--------------------------------
         // con este metodo listamos los datos
         listarDatos();
         // creamos este metodo para al pinchar en el item listado nos rellene los campos con sus atributos
-
+        sacartitulo();
 
     }
+
+    private void sacartitulo() {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("Loca").child("title").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(!snapshot.getValue(String.class).isEmpty()) {
+                    titulo = snapshot.getValue(String.class);
+                    datosS.setText(titulo);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
     //creamos este metodo para listar los datos-----------------------------------------------------------------------------------
     private void listarDatos() {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();

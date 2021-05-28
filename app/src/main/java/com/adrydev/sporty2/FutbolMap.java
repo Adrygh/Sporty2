@@ -73,7 +73,8 @@ public class FutbolMap extends FragmentActivity implements OnMapReadyCallback {
             @Override
             public boolean onMarkerClick(Marker marker) {
                 String id = mAuth.getCurrentUser().getUid();
-                mDataBase.child("Users").child(id).child("Loca").child(randonKey).setValue(marker);//guardar la loca
+                mDataBase.child("Users").child(id).child("Loca").setValue(marker);//guardar la loca
+
                 return false;
             }
         });
