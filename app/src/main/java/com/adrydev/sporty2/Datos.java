@@ -68,10 +68,34 @@ public class Datos extends AppCompatActivity {//--------------------------------
         ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("Loca").child("title").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(!snapshot.getValue(String.class).isEmpty()) {
-                    titulo = snapshot.getValue(String.class);
-                    datosS.setText(titulo);
+                if(snapshot.exists()){
+                    if(!snapshot.getValue(String.class).isEmpty()) {
+                        titulo = snapshot.getValue(String.class);
+                        datosS.setText(titulo);
+
+                    }
                 }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("MasDatos").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    Usuario usuario = snapshot.getValue(Usuario.class);
+                    if(!usuario.getNombre().isEmpty() && !usuario.getEdad().isEmpty()){
+                        nombreP.setText(usuario.getNombre());
+                        edadP.setText(usuario.getEdad());
+                        pesoP.setText(usuario.getPeso());
+                        depoP.setText(usuario.getDeporte());
+                    }
+                }
+
             }
 
             @Override
@@ -90,6 +114,7 @@ public class Datos extends AppCompatActivity {//--------------------------------
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String valor = dataSnapshot.getValue(String.class);
                 datosS.setText(String.valueOf(valor));
+
             }
 
             @Override
@@ -146,25 +171,29 @@ public class Datos extends AppCompatActivity {//--------------------------------
                 break;
             }
             case R.id.iconEditar:{
-                Usuario u = new Usuario();
-                u.setId(usuarioSeleccionado.getId());//cogemos el id del usuario seleccionada
-                u.setNombre(nombreP.getText().toString().trim());
-                u.setDeporte(depoP.getText().toString().trim());
-                u.setPeso(pesoP.getText().toString().trim());
-                u.setEdad(edadP.getText().toString().trim());
-                //con esta llamada sobreescribimos el objeto seleccionado en la database
-                String id = mAuth.getCurrentUser().getUid();
-                databaseReference.child("Users").child(id).child("MasDatos").setValue(u);
-                Toast.makeText(this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
+                if(nombre.equals("") || (deporte.equals("") || (peso.equals("") || (edad.equals(""))))){
+                    validacion();
+                }else{
+                    //creamos un objeto Usuari0 y enviamos los atributos
+                    Usuario u = new Usuario();
+                    u.setId(UUID.randomUUID().toString());// agregamos un ramdomidazor en el id
+                    u.setNombre(nombre);
+                    u.setDeporte(deporte);
+                    u.setPeso(peso);
+                    u.setEdad(edad);
 
+                    String id = mAuth.getCurrentUser().getUid();
+                    databaseReference.child("Users").child(id).child("MasDatos").setValue(u);
+                    Toast.makeText(this, "Modificado correctamente", Toast.LENGTH_SHORT).show();
+
+                }
                 break;
             }
             case R.id.iconEliminar:{
-                Usuario u = new Usuario();
-                u.setId(usuarioSeleccionado.getId());
+
                 // con esta llamada eliminamos el objeto seleccionado
                 String id = mAuth.getCurrentUser().getUid();
-                databaseReference.child("Users").child(id).child("MasDatos").child(u.getId()).removeValue();
+                databaseReference.child("Users").child(id).child("MasDatos").removeValue();
                 Toast.makeText(this, "Eliminado correctamente", Toast.LENGTH_SHORT).show();
                 limpiarCajas();
                 break;

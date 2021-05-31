@@ -48,12 +48,23 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Mi ultimo Spot "
+        android:textAlignment="center"
         android:textSize="45sp" />
 
     <TextView
         android:id="@+id/tvDatos"
         android:layout_width="match_parent"
         android:layout_height="94dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="40sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="255dp"
+        android:layout_height="289dp"
+        android:layout_marginTop="150dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/sportylogo" />
 
 </LinearLayout>
