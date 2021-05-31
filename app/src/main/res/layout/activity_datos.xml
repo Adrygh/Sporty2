@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/bangers"
         android:hint="Nombre"
         android:inputType="textPersonName" />
 
@@ -23,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/bangers"
         android:hint="Deporte"
         android:inputType="textPersonName" />
 
@@ -31,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/bangers"
         android:hint="Edad"
         android:inputType="textPersonName" />
 
@@ -39,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/bangers"
         android:hint="Peso"
         android:inputType="textPersonName" />
 
@@ -47,14 +51,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/bangers"
         android:text="Mi ultimo Spot "
         android:textAlignment="center"
-        android:textSize="45sp" />
+        android:textSize="45sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvDatos"
         android:layout_width="match_parent"
         android:layout_height="94dp"
+        android:fontFamily="@font/bangers"
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="40sp" />
@@ -63,7 +70,6 @@
         android:id="@+id/imageView"
         android:layout_width="255dp"
         android:layout_height="289dp"
-        android:layout_marginTop="150dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/sportylogo" />
 
