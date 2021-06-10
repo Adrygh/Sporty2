@@ -10,16 +10,25 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class PadelMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    FirebaseDatabase firebaseDatabase;
+    private DatabaseReference mDataBase;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_padel_map);
+        mDataBase = (FirebaseDatabase.getInstance().getReference());
+        mAuth = FirebaseAuth.getInstance();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -44,7 +53,15 @@ public class PadelMap extends FragmentActivity implements OnMapReadyCallback {
 
         LatLng f2 = new LatLng(40.42795102031972, -3.7248485433907397);
         mMap.addMarker(new MarkerOptions().position(f2).title("Pistas de Padel Marqués de Monistrol").snippet("Muy buenas instalaciones").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                String id = mAuth.getCurrentUser().getUid();
+                mDataBase.child("Users").child(id).child("Loca").setValue(marker);//guardar la loca
 
+                return false;
+            }
+        });
         LatLng f3 = new LatLng(40.40887014103973, -3.696352755274175);
         mMap.addMarker(new MarkerOptions().position(f3).title("Pistas de pádel Fabricante").snippet("Buenas instalaciones").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(f3,14), 5000, null);

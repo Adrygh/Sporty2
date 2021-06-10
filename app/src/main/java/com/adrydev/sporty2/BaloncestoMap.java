@@ -10,16 +10,25 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class BaloncestoMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    FirebaseDatabase firebaseDatabase;
+    private DatabaseReference mDataBase;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_baloncesto_map);
+        mDataBase = (FirebaseDatabase.getInstance().getReference());
+        mAuth = FirebaseAuth.getInstance();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -45,7 +54,15 @@ public class BaloncestoMap extends FragmentActivity implements OnMapReadyCallbac
 
         LatLng f2 = new LatLng(40.435310351774774, -3.7263789570620083);
         mMap.addMarker(new MarkerOptions().position(f2).title("Cancha de Baloncesto Paseo Camoens").snippet("Muy cuidadas").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                String id = mAuth.getCurrentUser().getUid();
+                mDataBase.child("Users").child(id).child("Loca").setValue(marker);//guardar la loca
 
+                return false;
+            }
+        });
 
         LatLng f3 = new LatLng(40.41361760559365, -3.7037196556681136);
         mMap.addMarker(new MarkerOptions().position(f3).title("Canchas De Embajadores").snippet("Suelos Nuevos").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));

@@ -10,16 +10,24 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SkateMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-
+    FirebaseDatabase firebaseDatabase;
+    private DatabaseReference mDataBase;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skate_map);
+        mDataBase = (FirebaseDatabase.getInstance().getReference());
+        mAuth = FirebaseAuth.getInstance();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -45,7 +53,15 @@ public class SkateMap extends FragmentActivity implements OnMapReadyCallback {
 
         LatLng f2 = new LatLng(40.456431396270816, -3.4760967975224166);
         mMap.addMarker(new MarkerOptions().position(f2).title("Skatepark Torrejon").snippet("Profesional").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                String id = mAuth.getCurrentUser().getUid();
+                mDataBase.child("Users").child(id).child("Loca").setValue(marker);//guardar la loca
 
+                return false;
+            }
+        });
 
         LatLng f3 = new LatLng(40.440755519673715, -3.6027828916791935);
         mMap.addMarker(new MarkerOptions().position(f3).title("Skate Park San Blas").snippet("Suelo en mal estado").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
